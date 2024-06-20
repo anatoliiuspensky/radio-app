@@ -8,6 +8,8 @@ import { StationListItem } from './station-list-item/station-list-item';
 export function StationList() {
   const stations = useStationList();
 
+  // TODO: figure out why two stations have the same ID returned. Was it intentional?
+
   return (
     <ol className={styles['container']}>
       {stations.map((s, i) => (<li key={`${s.id}-${i}`}>
