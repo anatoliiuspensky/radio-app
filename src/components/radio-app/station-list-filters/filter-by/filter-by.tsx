@@ -30,9 +30,9 @@ export function FilterBy() {
 
   return (
     <div className={styles['container']}>
-      <label>Find by:</label>
-      <select name="find-by" onChange={onSelect}>{
-          opts.map(o => (<option value={o.value} key={o.name} selected={o.value === filterBy}>{o.name}</option>))
+      <label>Search by:</label>
+      <select name="find-by" onChange={onSelect} defaultValue={filterBy}>{
+          opts.map(o => (<option value={o.value} key={o.name}>{o.name}</option>))
       }</select>
     </div>
   );

@@ -1,7 +1,13 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 4px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}

@@ -7,15 +7,18 @@ export interface StationListItemProps {
 }
 
 export function StationListItem({ station }: StationListItemProps) {
-  const { name } = station;
+  const { name, tags } = station;
 
   const onClick = () => {
     setStation(station); 
   };
 
+  const tagsStr = tags.map(t => `#${t}`).join(', ');
+
   return (
-    <div className={styles['container']} onClick={onClick}>
-      <div>Name: {name}</div>
-    </div>
+    <button className={styles.container} onClick={onClick}>
+      <div>{name}</div>
+      {tagsStr && (<div className={styles.tags}>{tagsStr}</div>) }
+    </button>
   );
 }

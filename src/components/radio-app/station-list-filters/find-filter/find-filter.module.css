@@ -1,7 +1,4 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.searchInput {
+  outline: solid #0090fc 1px;
+  border-radius: 2px;
+}

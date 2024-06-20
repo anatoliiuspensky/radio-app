@@ -22,11 +22,9 @@ export function FindFilter() {
   };
 
   return (
-    <div className={styles['container']}>
-      <label>Find:</label>
-      <input value={inputVal} onChange={onChange} />
+    <div className={styles.container}>
+      <label>Search for:</label>
+      <input className={styles.searchInput} value={inputVal} onChange={onChange} />
     </div>
   );
 }
-
-export default FindFilter;

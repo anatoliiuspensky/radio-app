@@ -5,14 +5,18 @@ import StationPlayer from './station-player/station-player';
 
 export function RadioApp() {
   return (
-    <div className={styles['container']}>
-      <section>
+    <div className={styles.container}>
+      <nav className={styles['station-filters-nav']}>
         <StationListFilters />
-        <StationList />
-      </section>
-      <section>
-        <StationPlayer />
-      </section>
+      </nav>
+      <main className={styles.main}>
+        <section>
+          <StationList />
+        </section>
+        <section>
+          <StationPlayer />
+        </section>
+      </main>
     </div>
   );
 }

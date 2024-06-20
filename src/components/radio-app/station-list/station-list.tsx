@@ -12,9 +12,11 @@ export function StationList() {
 
   return (
     <ol className={styles['container']}>
-      {stations.map((s, i) => (<li key={`${s.id}-${i}`}>
-        <StationListItem  station={s} />
-      </li>))}
+      {stations.map((s, i) => (
+        <li className={styles.item} key={`${s.id}-${i}`}>
+          <StationListItem  station={s} />
+        </li>
+      ))}
     </ol>
   );
 }

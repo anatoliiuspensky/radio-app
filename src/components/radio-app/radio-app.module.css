@@ -1,7 +1,18 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.container {
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.station-filters-nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1 100%;
+  width: 100%;
+  border-bottom: solid #999 1px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+}

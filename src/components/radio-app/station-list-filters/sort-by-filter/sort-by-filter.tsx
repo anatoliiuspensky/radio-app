@@ -35,8 +35,8 @@ export function SortByFilter() {
   return (
     <div className={styles['container']}>
       <label>Sort by:</label>
-      <select name="find-by" onChange={onSelect}>{
-          opts.map(o => (<option value={o.value} key={o.name} selected={o.value === sortBy}>{o.name}</option>))
+      <select name="find-by" onChange={onSelect} defaultValue={sortBy}>{
+          opts.map(o => (<option value={o.value} key={o.name}>{o.name}</option>))
       }</select>
     </div>
   );
