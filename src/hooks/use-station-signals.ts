@@ -2,6 +2,8 @@ import { Signal, signal } from '@preact/signals-react';
 import { useSignals } from '@preact/signals-react/runtime';
 import { IRadioStation } from 'src/interfaces';
 
+// TODO: complete UT when spare time
+
 export interface ISelectedStationSignal {
   selectedStation: IRadioStation | null;
 }

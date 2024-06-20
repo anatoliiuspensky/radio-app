@@ -4,6 +4,8 @@ import { IRadioStation, SortOrder } from 'src/interfaces';
 
 const URL = '/api/radio-stations';
 
+// TODO: add hook UT when spare time
+
 export interface IUseStationListParams {
   skip?: number; // use for pagination and/or eternal scroll
   take?: number; // use for pagination and/or eternal scroll
