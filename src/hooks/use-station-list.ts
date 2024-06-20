@@ -1,25 +1,14 @@
+import { useSignals } from '@preact/signals-react/runtime';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { IRadioStation, SortOrder } from 'src/interfaces';
+import { IRadioStation } from '../interfaces';
+import { IUseStationListParams, useStationListFilters } from './use-station-filters';
 
 const URL = '/api/radio-stations';
 
 // TODO: add hook UT when spare time
 
-export interface IUseStationListParams {
-  skip?: number; // use for pagination and/or eternal scroll
-  take?: number; // use for pagination and/or eternal scroll
-  filterBy?: 'name' | 'tags';
-  filter?: any;
-  sortOrder?: SortOrder;
-  sortBy?: keyof IRadioStation;
-}
-
-const PAGE_SIZE_DEFAULT = 100;
-const SORT_BY_DEFAULT = 'name';
-const SORT_ORDER_DEFAULT = SortOrder.ASC;
-
-const getAxiosConfigFromParams = ({ skip = 0, take = PAGE_SIZE_DEFAULT, sortBy = SORT_BY_DEFAULT, sortOrder = SORT_ORDER_DEFAULT, filter, filterBy }: IUseStationListParams): AxiosRequestConfig => ({
+const getAxiosConfigFromParams = ({ skip, take, sortBy, sortOrder, filter, filterBy }: IUseStationListParams): AxiosRequestConfig => ({
   params: {
     skip,
     take,
@@ -30,8 +19,11 @@ const getAxiosConfigFromParams = ({ skip = 0, take = PAGE_SIZE_DEFAULT, sortBy =
   }
 });
 
-export function useStationList(params: IUseStationListParams): IRadioStation[] {
+export function useStationList(): IRadioStation[] {
+  useSignals();
+  const params = useStationListFilters();
   const [stationList, setStations] = useState<IRadioStation[]>([]);
+
   // TODO: consider adding loading indicator
 
   useEffect(() => {

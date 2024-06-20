@@ -1,6 +1,6 @@
 import { IRadioStation } from 'src/interfaces';
 import styles from './station-list-item.module.css';
-import { useStationSignals } from '../../../../hooks';
+import { setStation } from '../../../../hooks';
 
 export interface StationListItemProps {
   station: IRadioStation;
@@ -8,10 +8,11 @@ export interface StationListItemProps {
 
 export function StationListItem({ station }: StationListItemProps) {
   const { name } = station;
-  const newStationSignal = useStationSignals();
+
   const onClick = () => {
-    newStationSignal.value = { selectedStation: station }; 
+    setStation(station); 
   };
+
   return (
     <div className={styles['container']} onClick={onClick}>
       <div>Name: {name}</div>
