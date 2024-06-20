@@ -1,7 +1,12 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.stationInfo {
+  font-size: 12px;
+  display: flex;
+  max-width: 100%;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.label {
+  margin-right: 4px;
+}
+

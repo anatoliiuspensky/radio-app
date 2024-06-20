@@ -1,6 +1,6 @@
 'use client';
 
-import { RadioPlayer } from 'src/components/common';
+import { RadioPlayer } from '../../common';
 import { IRadioStation } from '../../../../src/interfaces';
 import styles from './station-player.module.css';
 import { StationDetails } from './station-details/station-details';
@@ -19,10 +19,12 @@ export function StationPlayer(props: StationPlayerProps) {
 
   return (
     <>
+      <h1 className={styles.header}>
+        <img className={styles.logo} src={selectedStation.imgUrl} alt={`${name} image`}/>
+        <span>{selectedStation.name}</span>
+      </h1>
       <RadioPlayer src={selectedStation.streamUrl}/>
       <StationDetails station={selectedStation} />
     </>
   );
 }
-
-export default StationPlayer;

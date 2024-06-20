@@ -1,7 +1,7 @@
 import styles from './radio-app.module.css';
-import StationListFilters from './station-list-filters/station-list-filters';
+import { StationListFilters } from './station-list-filters/station-list-filters';
 import { StationList } from './station-list/station-list';
-import StationPlayer from './station-player/station-player';
+import { StationPlayer } from './station-player/station-player';
 
 export function RadioApp() {
   return (
@@ -13,7 +13,7 @@ export function RadioApp() {
         <section>
           <StationList />
         </section>
-        <section>
+        <section className={styles.radioWrapper}>
           <StationPlayer />
         </section>
       </main>
