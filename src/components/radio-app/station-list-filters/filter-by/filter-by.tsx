@@ -1,12 +1,13 @@
 'use client';
 
 import { ChangeEvent } from 'react';
-import { IUseStationListParams, useStationListFilters, setStationListParams } from '../../../../hooks';
+import { useStationListFilters, setStationListParams } from '../../../../hooks';
+import { IStationListQueryParams } from '../../../../interfaces';
 import styles from './filter-by.module.css';
 
 interface IFilterByOpt {
   name: string;
-  value: IUseStationListParams['filterBy'];
+  value: IStationListQueryParams['filterBy'];
 }
 
 export function FilterBy() {
@@ -24,7 +25,7 @@ export function FilterBy() {
   ];
 
   const onSelect = (ev: ChangeEvent<HTMLSelectElement>) => {
-    const newFilterBy = ev.target.value as IUseStationListParams['filterBy'];
+    const newFilterBy = ev.target.value as IStationListQueryParams['filterBy'];
     setStationListParams({ filterBy: newFilterBy });
   };
 

@@ -1,12 +1,13 @@
 'use client';
 
 import { ChangeEvent } from 'react';
-import { IUseStationListParams, setStationListParams, useStationListFilters } from '../../../../hooks';
+import { setStationListParams, useStationListFilters } from '../../../../hooks';
 import styles from './sort-by-filter.module.css';
+import { IStationListQueryParams } from '../../../../interfaces';
 
 interface ISortByOpt {
   name: string;
-  value: IUseStationListParams['sortBy'];
+  value: IStationListQueryParams['sortBy'];
 }
 
 export function SortByFilter() {
@@ -19,7 +20,7 @@ export function SortByFilter() {
     },
     {
       name: 'Popularity',
-      value: 'polularity',
+      value: 'popularity',
     },
     {
       name: 'Reliability',
@@ -28,7 +29,7 @@ export function SortByFilter() {
   ];
 
   const onSelect = (ev: ChangeEvent<HTMLSelectElement>) => {
-    const newSortBy = ev.target.value as IUseStationListParams['sortBy'];
+    const newSortBy = ev.target.value as IStationListQueryParams['sortBy'];
     setStationListParams({ sortBy: newSortBy });
   };
 

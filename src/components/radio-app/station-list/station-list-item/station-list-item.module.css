@@ -9,5 +9,11 @@
 }
 
 .tags {
+  font-size: 10px;
+}
+
+.details {
   font-size: 12px;
+  display: flex;
+  gap: 4px;
 }

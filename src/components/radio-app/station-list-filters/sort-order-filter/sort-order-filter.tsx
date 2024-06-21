@@ -1,7 +1,7 @@
 'use client';
 
 import { ChangeEvent } from 'react';
-import { IUseStationListParams, setStationListParams, useStationListFilters } from '../../../../hooks';
+import { setStationListParams, useStationListFilters } from '../../../../hooks';
 import { SortOrder } from '../../../../interfaces';
 import styles from './sort-order-filter.module.css';
 
@@ -25,7 +25,7 @@ export function SortOrderFilter() {
   ];
 
   const onSelect = (ev: ChangeEvent<HTMLSelectElement>) => {
-    const newSortOrder = ev.target.value as IUseStationListParams['sortOrder'];
+    const newSortOrder = ev.target.value as SortOrder;
     setStationListParams({ sortOrder: newSortOrder });
   };
 

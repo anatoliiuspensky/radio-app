@@ -1,4 +1,5 @@
-import { IRadioStation } from '../../../../../src/interfaces';
+import { getStationPopularityDescription } from '../../../../helpers';
+import { IRadioStation } from '../../../../interfaces';
 import styles from './station-details.module.css';
 
 export interface StationDetailsProps {
@@ -20,10 +21,10 @@ export function StationDetails({ station } : StationDetailsProps) {
     },
     {
       name: 'Popularity:',
-      description: popularity?.toString() || 'Not rated yet',
+      description: getStationPopularityDescription(popularity),
     },
     {
-      name: 'Station reliability:',
+      name: 'Reliability:',
       description: reliability.toString(),
     },
     {

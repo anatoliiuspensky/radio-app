@@ -1,14 +1,14 @@
 import { useSignals } from '@preact/signals-react/runtime';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { IRadioStation } from '../interfaces';
-import { IUseStationListParams, useStationListFilters } from './use-station-filters';
+import { IRadioStation, IStationListQueryParams } from '../interfaces';
+import { useStationListFilters } from './use-station-filters';
 
 const URL = '/api/radio-stations';
 
 // TODO: add hook UT when spare time
 
-const getAxiosConfigFromParams = ({ skip, take, sortBy, sortOrder, filter, filterBy }: IUseStationListParams): AxiosRequestConfig => ({
+const getAxiosConfigFromParams = ({ skip, take, sortBy, sortOrder, filter, filterBy }: IStationListQueryParams): AxiosRequestConfig => ({
   params: {
     skip,
     take,

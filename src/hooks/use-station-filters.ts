@@ -1,15 +1,6 @@
 import { signal } from '@preact/signals-react';
-import { SortOrder } from '../interfaces';
+import { SortOrder, IStationListQueryParams } from '../interfaces';
 import { useSignals } from '@preact/signals-react/runtime';
-
-export interface IUseStationListParams {
-  skip?: number; // for later use for pagination and/or eternal scroll
-  take?: number; // for later use for pagination and/or eternal scroll
-  filterBy: 'name' | 'tags';
-  filter?: string;
-  sortOrder: SortOrder;
-  sortBy: 'name' | 'polularity' | 'reliability';
-}
 
 
 const PAGE_SIZE_DEFAULT = 100;
@@ -19,13 +10,13 @@ const FILTER_BY_DEFAULT = 'name' as const;
 
 const DEFAULT_PARAMS = { skip: 0, take: PAGE_SIZE_DEFAULT, sortBy: SORT_BY_DEFAULT, sortOrder: SORT_ORDER_DEFAULT, filterBy: FILTER_BY_DEFAULT };
 
-const stationListParamsSignal = signal<IUseStationListParams>({ ...DEFAULT_PARAMS });
+const stationListParamsSignal = signal<IStationListQueryParams>({ ...DEFAULT_PARAMS });
 
-export const setStationListParams = (newParams: Partial<IUseStationListParams>) => {
+export const setStationListParams = (newParams: Partial<IStationListQueryParams>) => {
   stationListParamsSignal.value = { ...stationListParamsSignal.value, ...newParams };
 };
 
-export const useStationListFilters = (): IUseStationListParams => {
+export const useStationListFilters = (): IStationListQueryParams => {
   useSignals();
   return stationListParamsSignal.value;
 };
